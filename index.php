@@ -1,4 +1,3 @@
 <?php
-echo '666';
-//afas
+echo '777';
 ?>
