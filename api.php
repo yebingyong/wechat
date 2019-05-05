@@ -1,27 +1,44 @@
 <?php
-/**
- * User: yeby
- * Date: 2019/5/5
- * Time: 16:34
- */
+//定义常量token
 
-var_dump(GET["echostr"]);
-return GET["echostr"];
-//echostr
-//private function checkSignature()
+define('TOKEN','weixin');
+
+//检查标签
+function checkSignature()
+{
+    //先获取到这三个参数
+    $signature = $_GET['signature'];
+    $nonce = $_GET['nonce'];
+    $timestamp = $_GET['timestamp'];
+
+    //把这三个参数存到一个数组里面
+    $tmpArr = array($timestamp,$nonce,TOKEN);
+    //进行字典排序
+    sort($tmpArr);
+
+    //把数组中的元素合并成字符串，impode()函数是用来将一个数组合并成字符串的
+    $tmpStr = implode($tmpArr);
+
+    //sha1加密，调用sha1函数
+    $tmpStr = sha1($tmpStr);
+    //判断加密后的字符串是否和signature相等
+    if($tmpStr == $signature)
+    {
+
+        return true;
+    }
+    return false;
+}
+//如果相等，验证成功就返回echostr
+//if(checkSignature())
 //{
-//    _GET["signature"];
-//    _GET["timestamp"];
-//    _GET["nonce"];
-//
-//    tmpArr = array(timestamp, $nonce);
-//    sort($tmpArr, SORT_STRING);
-//    $tmpStr = implode( $tmpArr );
-//    $tmpStr = sha1( $tmpStr );
-//
-//    if( signature ){
-//        return true;
-//    }else{
-//        return false;
-//    }
+    //返回echostr
+    $echostr = $_GET['echostr'];
+    if($echostr)
+    {
+        echo $echostr;
+        exit;
+    }
 //}
+
+?>
