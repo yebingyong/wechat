@@ -5,6 +5,7 @@
  * Time: 16:34
  */
 
+var_dump(GET["echostr"]);
 return GET["echostr"];
 //echostr
 //private function checkSignature()
