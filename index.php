@@ -40,11 +40,11 @@ class Oauth {
         //发送的模板信息(微信要求json格式，这里为数组（方便添加变量）格式，然后转为json)
         $post_data = array(
             "touser"=>$openid,//推送给谁,openid
-                "template_id"=>"23t70tTgQIplsznOI47USSYkcMe3WVvQLWXS_BDnb_k",//微信后台的模板信息id
+                "template_id"=>"zYHY-H6J0bZmPYWCaOuEYpp0_cCBwJ5zXHYmI9wlj3Q",//微信后台的模板信息id
                 "url"=>"http://www.baidu.com",//下面为预约看房模板示例
                 "data"=> array(
                     "first" => array(
-                        "value"=>"您有新客户，请及时查看！",
+                        "value"=>"谢婷婷",
                         "color"=>"#173177"
                     ),
                 )
@@ -84,5 +84,5 @@ class Oauth {
 }
 
 $send = new Oauth();//实例化类
-$send->sendMessage('oHwAZ55OpCWI8l6fusMjRvekxBo0');
+$send->sendMessage('oHwAZ5_GDybtIlBELcTXgyF4TJJE');
 ?>
