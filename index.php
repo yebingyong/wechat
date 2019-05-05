@@ -2,9 +2,9 @@
 class Oauth {
     public function get_token(){
         //如果已经存在直接返回access_token
-        if($_SESSION['access_token'] && $_SESSION['expire_time']>time()){
-            return $_SESSION['access_token'];
-        }else{
+//        if($_SESSION['access_token'] && $_SESSION['expire_time']>time()){
+//            return $_SESSION['access_token'];
+//        }else{
         //1.请求url地址
         $appid = 'wxf0b991d41f0ab046';   //appid
         $appsecret =  '88c620bb28289e6fa5cf64b33f11501f';
@@ -25,10 +25,10 @@ class Oauth {
         //5.关闭curl
         curl_close( $ch );
         $arr = json_decode($res, true);//将结果转为数组
-        $_SESSION['access_token']=$arr['access_token'];　　//将access_token存入session中，可以不存，每次都获得新的token
-        $_SESSION['expire_time']=time()+7200;
+//        $_SESSION['access_token']=$arr['access_token'];　　//将access_token存入session中，可以不存，每次都获得新的token
+//        $_SESSION['expire_time']=time()+7200;
         return $arr['access_token'];
-        }
+//        }
     }
 
 
