@@ -84,6 +84,6 @@ class Oauth {
 }
 
 $send = new Oauth();//实例化类
-$data = $send->sendMessage('23t70tTgQIplsznOI47USSYkcMe3WVvQLWXS_BDnb_k');
+$data = $send->sendMessage('oHwAZ55OpCWI8l6fusMjRvekxBo0');
 var_dump($data);
 ?>
